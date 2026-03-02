@@ -1,6 +1,6 @@
 Hi,
 
-Facebook's DOM changes weekly — hardcoded selectors are the wrong foundation for automation that needs to stay running. Built a more resilient approach for your inventory posting flow: {VERCEL_URL}
+Facebook's DOM changes weekly — hardcoded selectors are the wrong foundation for automation that needs to stay running. Built a more resilient approach for your inventory posting flow: https://full-throttle-demo.vercel.app
 
 The demo covers selector-resilient form filling, exponential backoff on retries, and branching logic for motorcycle vs. powersport form variants — the fragility points you named.
 
