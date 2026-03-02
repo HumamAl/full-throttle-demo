@@ -1,0 +1,71 @@
+{
+  "domain": "automotive",
+  "clientName": null,
+  "features": [
+    "automation run dashboard with live posting status",
+    "inventory feed browser with DMS sync state",
+    "Facebook posting queue with retry status",
+    "listing removal tracker (sold vehicle delisting)",
+    "automation health monitor with selector failure log",
+    "posting rules configuration panel"
+  ],
+  "challenges": [
+    {
+      "title": "Facebook DOM Fragility — Selectors Break Without Warning",
+      "vizType": "flow-diagram",
+      "outcome": "Could reduce selector-break downtime from days to minutes by decoupling selector definitions from automation logic and adding fallback resolution chains"
+    },
+    {
+      "title": "Photo Upload Failures and CAPTCHA Interruptions",
+      "vizType": "metric-bars",
+      "outcome": "Could increase successful post completion rate from ~60% to 90%+ by adding resilient waits, retry backoff, and CAPTCHA detection with human-in-the-loop escalation"
+    },
+    {
+      "title": "Listing Removal Reliability — Sold Vehicles Staying Live",
+      "vizType": "before-after",
+      "outcome": "Could eliminate manual removal work by hardening the delisting flow to handle FB session state, stale cookies, and re-auth triggers reliably"
+    },
+    {
+      "title": "Motorcycle vs. Powersport Category Form Branching",
+      "vizType": "flow-diagram",
+      "outcome": "Could handle both form schemas in a single automation run by detecting category at runtime and routing to the correct field-filling sequence automatically"
+    }
+  ],
+  "portfolioProjects": [
+    "DealerHub — Automotive SaaS",
+    "eBay Pokemon Monitor",
+    "WMF Agent Dashboard",
+    "Fleet Maintenance SaaS"
+  ],
+  "coverLetterHooks": [
+    "Facebook changes DOM constantly, selectors break",
+    "CAPTCHA prompts, slow loading, photo upload failures",
+    "listing removal stubbed out but barely tested",
+    "form filling works but fragile",
+    "Bonus points if you've automated anything on Facebook before — you know how fun that is"
+  ],
+  "screeningQuestion": "Drop me a message with any relevant Playwright or browser automation work you've done. Bonus points if you've automated anything on Facebook before — you know how fun that is.",
+  "screeningAnswer": "Built a real-time eBay monitor using webhook-based polling and a Playwright-backed scraper — the kind of work where the target site changes without notice and your automation has to stay resilient. Facebook Marketplace is a different level of fun: I've dealt with the DOM shuffle, rate limiting, and session state expiry. Happy to share specifics on a call or in a quick doc.",
+  "aestheticProfile": {
+    "aesthetic": "dark-premium",
+    "demoFormat": "dashboard-app",
+    "formatRationale": "The job describes an existing desktop admin tool with a sidebar, dashboard, inventory table, and settings screen. The client already shared screenshots showing a dark-themed sidebar app with orange accent branding. A dashboard-app format mirrors the architecture they're already building and signals immediate comprehension of the product.",
+    "mood": "high-stakes operational, technically precise, built for power users",
+    "colorDirection": "electric orange on near-black at oklch(0.68 0.20 42) — matches the existing Full Throttle brand signaled in the screenshot description, high chroma for punch on dark backgrounds",
+    "densityPreference": "compact",
+    "justification": "Client wrote technically and directly — 'TypeScript @ts-ignore', 'persistent browser profiles', 'headless and headed modes'. The existing app is dark-themed with orange accents (from screenshot context: 'dark theme, orange accents, FULL THROTTLE branding'). This is a desktop ops tool used by dealership power users who run automation jobs. Dark Premium is the natural fit: it signals technical credibility, matches the existing brand aesthetic, and reads as a professional automation platform rather than a generic SaaS dashboard."
+  },
+  "clientVocabulary": {
+    "primaryEntities": ["vehicle", "listing", "inventory feed", "DMS", "posting run", "selector"],
+    "kpiLabels": ["Posted Today", "Pending", "Sold / Delisted", "New Arrivals", "Automation Failures", "Active Listings"],
+    "statusLabels": ["Queued", "Posting", "Posted", "Failed", "Removed", "Sold"],
+    "workflowVerbs": ["post", "sync", "delist", "retry", "dispatch", "queue"],
+    "sidebarNavCandidates": ["Automation Dashboard", "Inventory Feed", "Posting Queue", "Removal Log", "Posting Rules"],
+    "industryTerms": ["DMS", "FTP", "Facebook Marketplace", "Playwright", "headless browser", "persistent profile", "CAPTCHA", "powersport", "ATV", "UTV", "VIN", "dealer feed"]
+  },
+  "designSignals": "This client is a technical founder or developer who built the app themselves — they know exactly what Playwright selectors are, what a persistent browser profile means, and why CAPTCHA handling is hard. They won't be impressed by visual flair; they'll be impressed by a demo that shows the operational monitoring surfaces they actually need: a live posting queue with retry status, a failure log with selector context, a sync health indicator. The reference point for 'premium' to this client is something like Tauri's own dashboard or a DevOps monitoring tool — functional, dense, dark, and clearly built by someone who has written automation code before.",
+  "accentColor": "orange",
+  "signals": ["DETAILED_SPEC", "TECH_SPECIFIC", "EXPERIENCED_CLIENT"],
+  "coverLetterVariant": "B",
+  "domainResearcherFocus": "Focus on powersport dealership terminology: DMS (dealer management system — common vendors: CDK Global, Reynolds & Reynolds, Dealertrack, DealerSocket), inventory feed formats (CSV/XML with fields like VIN, make, model, year, trim, mileage, price, condition, photos array). Realistic vehicle entities: 2023 Honda CRF450R, 2024 Polaris RZR Pro R, 2022 Can-Am Spyder RT, 2023 Kawasaki Z900, 2024 Yamaha YXZ1000R. KPI ranges: a small dealership posts 20-80 vehicles/month, posting success rate 60-90%, avg listing age 30-90 days. Edge cases: vehicle sold same day as posting attempt, DMS feed includes duplicate VINs, photo array is empty or has broken URLs, FB session expires mid-run. Facebook Marketplace automation context: Playwright with chromium, persistent context at ~/.ft-browser-profile, form fields target category 'Motorcycles & Powersports' or 'Powersports' subcategory. Real tools in this space: Tauri, Svelte, Prisma + PostgreSQL, Zod schemas, BullMQ or similar for job queues."
+}

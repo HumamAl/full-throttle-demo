@@ -247,6 +247,46 @@
 }
 
 /* ============================================================
+   AESTHETIC: dark-premium / DOMAIN: powersport-automation
+   Orange/amber accent — electric orange at oklch(0.68 0.20 42)
+   Compact density. Warm near-black dark canvas.
+   ============================================================ */
+:root {
+  /* ── Primary: electric orange ──────────────────────────── */
+  --primary: oklch(0.68 0.20 42);
+  --primary-foreground: oklch(0.08 0.015 55);
+  --primary-h: 42;
+
+  /* ── Derived from primary hue ───────────────────────────── */
+  --section-dark: oklch(0.10 0.02 var(--primary-h));
+  --ring: oklch(0.68 0.20 42);
+
+  /* ── Accent: amber ───────────────────────────────────────── */
+  --accent: oklch(0.72 0.15 55);
+  --accent-foreground: oklch(0.08 0.015 55);
+
+  /* ── Sidebar primary ─────────────────────────────────────── */
+  --sidebar-primary: oklch(0.68 0.20 42);
+  --sidebar-primary-foreground: oklch(0.08 0.015 55);
+  --sidebar-ring: oklch(0.68 0.20 42);
+
+  /* ── Chart colors — harmonized oranges/ambers + blue-grays ─ */
+  --chart-1: oklch(0.68 0.20 42);   /* electric orange — primary */
+  --chart-2: oklch(0.72 0.15 55);   /* amber */
+  --chart-3: oklch(0.78 0.12 70);   /* golden yellow */
+  --chart-4: oklch(0.55 0.10 230);  /* steel blue-gray */
+  --chart-5: oklch(0.48 0.08 250);  /* muted blue */
+
+  /* ── Compact density overrides ───────────────────────────── */
+  --content-padding: 1rem;
+  --card-padding: 1rem;
+  --card-padding-sm: 0.75rem;
+  --nav-item-py: 0.375rem;
+  --sidebar-width: 14rem;
+  --header-height: 2.75rem;
+}
+
+/* ============================================================
    .dark — Kept for shadcn/ui compatibility only.
    Apps are light-only. Do NOT add a dark mode toggle.
    ============================================================ */
@@ -434,42 +474,68 @@
          --primary-h must be set for derived dark surfaces.      */
 [data-theme="dark-premium"] {
   --radius: 0.75rem;
-  --background: oklch(0.08 0.01 var(--primary-h, 250));
-  --foreground: oklch(0.92 0 0);
-  --card: oklch(0.12 0.01 var(--primary-h, 250));
-  --card-foreground: oklch(0.92 0 0);
-  --popover: oklch(0.12 0.01 var(--primary-h, 250));
-  --popover-foreground: oklch(0.92 0 0);
+  /* Warm near-black — amber/orange tinted dark canvas */
+  --background: oklch(0.08 0.015 var(--primary-h, 42));
+  --foreground: oklch(0.92 0.005 var(--primary-h, 42));
+  --card: oklch(0.12 0.010 var(--primary-h, 42));
+  --card-foreground: oklch(0.92 0.005 var(--primary-h, 42));
+  --popover: oklch(0.12 0.010 var(--primary-h, 42));
+  --popover-foreground: oklch(0.92 0.005 var(--primary-h, 42));
   --border: oklch(1 0 0 / 0.08);
   --input: oklch(1 0 0 / 0.12);
-  --ring: oklch(1 0 0 / 0.25);
-  --muted: oklch(0.16 0.01 var(--primary-h, 250));
-  --muted-foreground: oklch(0.60 0 0);
-  --secondary: oklch(0.16 0.01 var(--primary-h, 250));
+  --ring: var(--primary);
+  --muted: oklch(0.16 0.010 var(--primary-h, 42));
+  --muted-foreground: oklch(0.58 0.01 var(--primary-h, 42));
+  --secondary: oklch(0.16 0.010 var(--primary-h, 42));
   --secondary-foreground: oklch(0.92 0 0);
-  --accent: oklch(0.16 0.02 var(--primary-h, 250));
-  --accent-foreground: oklch(0.92 0 0);
-  --sidebar: oklch(0.10 0.01 var(--primary-h, 250));
-  --sidebar-foreground: oklch(0.85 0 0);
+  --accent: oklch(0.72 0.15 55);
+  --accent-foreground: oklch(0.08 0.015 55);
+  --sidebar: oklch(0.10 0.012 var(--primary-h, 42));
+  --sidebar-foreground: oklch(0.85 0.005 var(--primary-h, 42));
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: oklch(0.08 0.015 55);
+  --sidebar-accent: oklch(0.16 0.010 var(--primary-h, 42));
+  --sidebar-accent-foreground: oklch(0.85 0 0);
   --sidebar-border: oklch(1 0 0 / 0.08);
-  --sidebar-bg: oklch(0.10 0.01 var(--primary-h, 250));
-  --section-dark: oklch(0.06 0.02 var(--primary-h, 250));
+  --sidebar-bg: oklch(0.10 0.012 var(--primary-h, 42));
+  --section-dark: oklch(0.10 0.02 var(--primary-h));
   --surface-hover: oklch(1 0 0 / 0.05);
   --surface-active: oklch(1 0 0 / 0.08);
   --card-border-width: 1px;
   --card-shadow: 0 0 0 1px oklch(1 0 0 / 0.06), inset 0 1px 0 oklch(1 0 0 / 0.08);
-  --card-shadow-hover: 0 0 0 1px oklch(1 0 0 / 0.12), 0 4px 16px oklch(0 0 0 / 0.30);
+  --card-shadow-hover: 0 0 0 1px oklch(0.68 0.20 42 / 0.20), 0 4px 16px oklch(0 0 0 / 0.30);
   --card-hover-transform: none;
-  --page-padding: 2rem;
-  --content-padding: 2rem;
-  --grid-gap: 1rem;
-  --section-gap: 2rem;
+  /* Compact density for powersport ops */
+  --page-padding: 1rem;
+  --content-padding: 1rem;
+  --card-padding: 1rem;
+  --card-padding-sm: 0.75rem;
+  --grid-gap: 0.75rem;
+  --section-gap: 1.5rem;
+  --nav-item-py: 0.375rem;
+  --sidebar-width: 14rem;
+  --header-height: 2.75rem;
   --heading-weight: 600;
   --heading-tracking: -0.02em;
   --dur-fast: 120ms;
   --dur-normal: 200ms;
   --ease-snappy: cubic-bezier(0.16, 1, 0.3, 1);
   --t-interactive: var(--dur-fast) var(--ease-snappy);
+}
+
+/* Dark Premium — orange glow card utility */
+[data-theme="dark-premium"] .dark-card {
+  background: oklch(0.12 0.010 42);
+  border: 1px solid oklch(1 0 0 / 0.08);
+  box-shadow: inset 0 1px 0 oklch(1 0 0 / 0.06);
+  border-radius: var(--radius);
+}
+
+[data-theme="dark-premium"] .dark-card-glow {
+  background: oklch(0.12 0.010 42);
+  border: 1px solid oklch(0.68 0.20 42 / 0.25);
+  box-shadow: 0 0 12px oklch(0.68 0.20 42 / 0.12), inset 0 1px 0 oklch(1 0 0 / 0.06);
+  border-radius: var(--radius);
 }
 
 /* ── 6. Swiss / Typographic ──────────────────────────────────
@@ -831,6 +897,30 @@
   --frame-border-color: oklch(0.25 0 0);
   --frame-bg: oklch(0.12 0 0);
   --frame-shadow: 0 20px 40px oklch(0 0 0 / 0.4);
+}
+
+/* ============================================================
+   KEYFRAME ANIMATIONS
+   ============================================================ */
+@keyframes fade-up-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up-in {
+  animation-name: fade-up-in;
+  animation-timing-function: ease-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
 }
 
 /* ============================================================

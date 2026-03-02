@@ -6,13 +6,16 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { APP_CONFIG } from "@/lib/config";
 import {
-  LayoutDashboard,
+  Gauge,
   ChevronLeft,
   ChevronRight,
   Lightbulb,
   User,
   ArrowRight,
   Github,
+  Warehouse,
+  ListOrdered,
+  Settings,
 } from "lucide-react";
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -23,19 +26,18 @@ import {
 // ═══════════════════════════════════════════════════════════════════════════
 
 const navItems = [
-  { href: "/", label: "Dashboard", icon: LayoutDashboard },
-  // Dashboard Builder agent: add 3-5 feature page nav items here.
-  // Example: { href: "/orders", label: "Orders", icon: ShoppingCart },
+  { href: "/", label: "Dashboard", icon: Gauge },
+  { href: "/inventory", label: "Inventory", icon: Warehouse },
+  { href: "/posting-queue", label: "Post Queue", icon: ListOrdered },
+  { href: "/settings", label: "Settings", icon: Settings },
 ];
 
 function SidebarLogo({ collapsed }: { collapsed: boolean }) {
   return (
     <div className="p-4 border-b border-border/60 flex items-center gap-3">
-      {/* Agent: replace the letter icon with a relevant Lucide icon if appropriate */}
+      {/* Gauge icon — matches powersport/automotive dashboard theme */}
       <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-        <span className="text-primary font-bold text-sm font-mono">
-          {APP_CONFIG.appName.charAt(0)}
-        </span>
+        <Gauge className="w-4 h-4 text-primary" />
       </div>
       {!collapsed && (
         <div className="overflow-hidden">
@@ -73,8 +75,8 @@ function SidebarNav({ collapsed }: { collapsed: boolean }) {
             className={cn(
               "flex items-center gap-3 px-3 rounded-md text-sm transition-colors duration-100",
               isActive
-                ? "bg-primary/8 text-primary font-medium"
-                : "text-muted-foreground hover:bg-[color:var(--surface-hover)]"
+                ? "bg-primary/15 text-primary font-medium"
+                : "text-white/60 hover:text-white/90 hover:bg-[color:var(--surface-hover)]"
             )}
           >
             <item.icon className="w-4 h-4 shrink-0" />
